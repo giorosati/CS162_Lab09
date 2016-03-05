@@ -50,7 +50,7 @@ void createPalindrome(string stringIn)
 	cout << "You entered: " << stringIn << endl;
 	cout << "Your palindrome is: " << newString;
 	cout << endl;
-	cout << "Press enter to continue." << endl;
+	//cout << "Press enter to continue." << endl;
 	myStack.clear();
-	cin.get();
+	//cin.get();
 }

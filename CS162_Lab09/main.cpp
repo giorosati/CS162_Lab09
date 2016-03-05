@@ -127,6 +127,7 @@ int main()
 				cout << "Your string will end as of its first whitespace character." << endl;
 				cout << "Enter your string: ";
 				cin >> stringIn;
+				cin.clear();
 				cin.ignore(100, '\n');
 				if (stringIn.length() < 2)
 				{

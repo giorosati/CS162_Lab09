@@ -35,8 +35,6 @@ int turn(int percent)
 
 void runSimulation(int intIn1, int intIn2, int intIn3)
 {
-	cout << "**********************" << endl;
-	cout << "Running the simulation now..." << endl;
 	cout << endl;
 	queue<int> myQueue;
 	for (int i = 0; i < intIn3; i++)
@@ -50,14 +48,14 @@ void runSimulation(int intIn1, int intIn2, int intIn3)
 		}
 	}
 	cout << "**********************" << endl;
-	cout << "Simulation is complete." << endl;
+	cout << "Simulation rounds are complete." << endl;
 	cout << endl;
-	cout << "User chosen odds of ADDING an element in each turn: " << intIn1 << "%" << endl;
-	cout << "User chosen odds of REMOVING an element in each turn: " << intIn2 << "%" << endl;
-	cout << "User chosen turns to run: " << intIn3 << endl;
+	cout << "User chosen odds of ADDING an element in each round: " << intIn1 << "%" << endl;
+	cout << "User chosen odds of REMOVING an element in each round: " << intIn2 << "%" << endl;
+	cout << "User chosen rounds to run: " << intIn3 << endl;
 	cout << endl;
 	cout << "Number of items in the queue at end: " << myQueue.size() << endl;
 	cout << endl;
-	myQueue.empty(); //remove all elements in the queue
+	myQueue = queue<int>(); //remove all elements in the queue by recreating the queue
 	cout << "Press enter to continue." << endl;
 }
