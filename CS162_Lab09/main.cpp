@@ -35,12 +35,9 @@ int main()
 	//initialize random number generator
 	srand((unsigned)time(NULL));
 
+	//function prototypes
 	void displayMenu();
 	int getInput();
-
-	//create the queue & stack
-	queue<int> myQueue;
-	deque<char> myStack;
 
 	bool done = false;
 	int choice = 0;
@@ -63,6 +60,7 @@ int main()
 				std::cin.ignore();
 				std::cin >> intIn1;
 				if (intIn1 > 100 || intIn1 < 1) cout << "Invalid entry. Entry must be 1 - 100" << endl;
+				cout << endl;
 			}
 
 			while (intIn2 > 100 || intIn2 < 1)
@@ -72,54 +70,29 @@ int main()
 				std::cin.ignore();
 				std::cin >> intIn2;
 				if (intIn2 > 100 || intIn2 < 1) cout << "Invalid entry. Entry must be 1 - 100" << endl;
+				cout << endl;
 			}
 
-			while (intIn3 > 1000 || intIn3 < 1)
+			while (intIn3 > 10000 || intIn3 < 1)
 			{
-				cout << "Enter an integer (1-10,000) for the number of rounds to " << endl;
-				cout << "run the simulation:  ";
+				cout << "Enter an integer (1-10,000) for the number of turns to " << endl;
+				cout << "run in the simulation:  ";
 				std::cin.ignore();
 				std::cin >> intIn3;
 				if (intIn3 > 10000 || intIn3 < 1) cout << "Invalid entry. Entry must be 1 - 10,000" << endl;
+				cout << endl;
 			}
 			cout << endl;
-			cout << "**********************" << endl;
-			cout << "Running the simulation now..." << endl;
-			cout << endl;
-
-			for (int i = 0; i < intIn3; i++)
-			{
-				int addValue = turn(intIn1);
-				int removeValue = turn(intIn2);
-				if (addValue != -1) myQueue.push(addValue);
-				if (removeValue != -1) myQueue.pop();
-			}
-			cout << "**********************" << endl;
-			cout << "Simulation is complete." << endl;
-			cout << endl;
-			cout << "User chosen odds of ADDING an element in each turn: " << intIn1 << "%" << endl;
-			cout << "User chosen odds of REMOVING an element in each turn: " << intIn2 << "%" << endl;
-			cout << "User chosen turns to run: " << intIn3 << endl;
-			cout << endl;
-			cout << "Items in the queue at end: " << myQueue.size() << endl;
-			cout << endl;
-			myQueue.empty(); //remove all elements in the queue
-			cout << "Press enter to continue." << endl;
+			runSimulation(intIn1, intIn2, intIn3);
 			break;
 		case 2:
 			
 			break;
 		case 3:
-			
-			break;
-		case 4:
-			
-			break;
-		case 5:
 			done = true;
 			break;
 		default:
-			std::cout << "Not a valid choice" << std::endl;
+			cout << "Not a valid choice" << std::endl;
 			break;
 		}
 	}
@@ -129,19 +102,19 @@ int main()
 void displayMenu() {
 	cout << std::endl;
 	cout << "What would you like to do?" << endl;
-	cout << "*************************" << endl;
-	cout << "     1) Run Buffer Test" << endl;
-	cout << "     2) Create a palindrome" << endl;
-	cout << "     3) Display the queue (used for buffer test)" << endl;
-	cout << "     4) Display the stack (used for palindrome)" << endl;
-	cout << "     5) Quit" << std::endl;
-	cout << std::endl;
+	cout << "*******************************" << endl;
+	cout << "*    1) Run Buffer Test       *" << endl;
+	cout << "*    2) Create a palindrome   *" << endl;
+	cout << "*    3) Quit                  *" << endl;
+	cout << "*******************************" << endl;
+	cout << endl;
+	cout << endl;
 }
 
 int getInput() {
 	int choice;
-	std::cout << "Choice: ";
-	std::cin >> choice;
+	cout << "Choice: ";
+	cin >> choice;
 	return choice;
 }
 
