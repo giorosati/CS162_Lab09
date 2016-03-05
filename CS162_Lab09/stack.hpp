@@ -9,9 +9,10 @@
 #ifndef STACK_HPP
 #define STACK_HPP
 
+#include <string>
+using std::string;
+
 //function prototypes
-int generateValue();		//returns a random value of 1 to 100
-int turn(int);
-void runSimulation(int intIn1, int intIn2, int intIn3);
+void createPalindrome(string stringIn);
 
 #endif

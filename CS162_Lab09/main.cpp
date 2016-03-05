@@ -44,6 +44,7 @@ int main()
 	int intIn1;
 	int intIn2;
 	int intIn3;
+	string stringIn = "";
 
 	while (done != true) {
 		displayMenu();
@@ -57,36 +58,87 @@ int main()
 			{
 				cout << "Enter an integer (1-100) that will be the percentage chance" << endl;
 				cout << "that an item is ADDED to the queue: ";
-				std::cin.ignore();
-				std::cin >> intIn1;
-				if (intIn1 > 100 || intIn1 < 1) cout << "Invalid entry. Entry must be 1 - 100" << endl;
+				cin >> intIn1;
+				if (!cin)
+				{
+					cout << "Invalid entry. Entry must be 1 - 100" << endl;
+					intIn1 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
+				else if (intIn1 > 100 || intIn1 < 1)
+				{
+					cout << "Invalid entry. Entry must be 1 - 100" << endl;
+					intIn1 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
 				cout << endl;
 			}
-
 			while (intIn2 > 100 || intIn2 < 1)
 			{
 				cout << "Enter an integer (1-100) that will be the percentage chance" << endl;
 				cout << "that an item is REMOVED from the queue: ";
-				std::cin.ignore();
-				std::cin >> intIn2;
-				if (intIn2 > 100 || intIn2 < 1) cout << "Invalid entry. Entry must be 1 - 100" << endl;
-				cout << endl;
+				cin >> intIn2;
+				if (!cin)
+				{
+					cout << "Invalid entry. Entry must be 1 - 100" << endl;
+					intIn2 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
+				else if (intIn2 > 100 || intIn2 < 1)
+				{
+					cout << "Invalid entry. Entry must be 1 - 100" << endl;
+					intIn1 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
+					cout << endl;
 			}
-
 			while (intIn3 > 10000 || intIn3 < 1)
 			{
 				cout << "Enter an integer (1-10,000) for the number of turns to " << endl;
 				cout << "run in the simulation:  ";
-				std::cin.ignore();
-				std::cin >> intIn3;
-				if (intIn3 > 10000 || intIn3 < 1) cout << "Invalid entry. Entry must be 1 - 10,000" << endl;
-				cout << endl;
+				cin >> intIn3;
+				if (!cin)
+				{
+					cout << "Invalid entry. Entry must be 1 - 10,000" << endl;
+					intIn3 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
+				else if (intIn3 > 10000 || intIn3 < 1)
+				{
+					cout << "Invalid entry. Entry must be 1 - 10,000" << endl;
+					intIn3 = 0;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
+					cout << endl;
 			}
 			cout << endl;
 			runSimulation(intIn1, intIn2, intIn3);
 			break;
 		case 2:
-			
+			while (stringIn.length() < 2)
+			{
+				cout << "Please enter a string of characters (at least two!): " << endl;
+				cout << "Your string will end as of its first whitespace character." << endl;
+				cout << "Enter your string: ";
+				cin >> stringIn;
+				cin.ignore(100, '\n');
+				if (stringIn.length() < 2)
+				{
+					stringIn = "";
+					cout << "Try again. Please enter at least two characters." << endl;
+					cout << endl;
+				}
+			}
+			cout << endl;
+			createPalindrome(stringIn);
+			cout << endl;
+			stringIn = "";
 			break;
 		case 3:
 			done = true;
@@ -100,7 +152,7 @@ int main()
 }
 
 void displayMenu() {
-	cout << std::endl;
+	cout << endl;
 	cout << "What would you like to do?" << endl;
 	cout << "*******************************" << endl;
 	cout << "*    1) Run Buffer Test       *" << endl;
