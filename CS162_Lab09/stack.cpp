@@ -20,10 +20,18 @@ using std::string;
 using std::deque;
 
 
-//create stack
-
+//create a stack of char
 deque<char> myStack;
 
+
+/*********************************************************************
+** Function: createPalindrome
+** Description: Takes a string of at least 2 characters as a parameter
+** and creates and outputs to the console the palindrome.
+** Parameters: a string of at least two characters
+** Pre-Conditions:	none
+** Post-Conditions: none
+*********************************************************************/
 void createPalindrome(string stringIn)
 {
 	
@@ -50,7 +58,6 @@ void createPalindrome(string stringIn)
 	cout << "You entered: " << stringIn << endl;
 	cout << "Your palindrome is: " << newString;
 	cout << endl;
-	//cout << "Press enter to continue." << endl;
 	myStack.clear();
-	//cin.get();
+
 }

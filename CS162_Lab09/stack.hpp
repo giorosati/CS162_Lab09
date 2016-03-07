@@ -12,7 +12,14 @@
 #include <string>
 using std::string;
 
-//function prototypes
+/*********************************************************************
+** Function: createPalindrome
+** Description: Takes a string of at least 2 characters as a parameter
+** and creates and outputs to the console the palindrome.
+** Parameters: a string of at least two characters
+** Pre-Conditions:	none
+** Post-Conditions: none
+*********************************************************************/
 void createPalindrome(string stringIn);
 
 #endif
